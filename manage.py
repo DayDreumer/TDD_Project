@@ -1,5 +1,6 @@
-Extending Our Functional Test Using
-the unittest Module#!/usr/bin/env python
+#Extending Our Functional Test Using
+#the unittest Module
+#!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
