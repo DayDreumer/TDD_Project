@@ -1,4 +1,5 @@
-from django.test import LiveServerTestCase
+# from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -8,12 +9,13 @@ import unittest
 
 MAX_WAIT = 10
 
-class NewVisitorTest(LiveServerTestCase):
+class NewVisitorTest(StaticLiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Chrome()
 
     def tearDown(self):
+        # self.browser.refresh()
         self.browser.quit()
 
     def test_layout_and_styling(self):
@@ -97,7 +99,7 @@ class NewVisitorTest(LiveServerTestCase):
         page_text = self.browser.find_element(By.TAG_NAME, 'body').text
         self.assertNotIn('Buy peacock feathers', page_text)
         self.assertIn('Buy milk', page_text)
-        
+        time.sleep(5)
         # Satisfied, they go back to sleep
         
 
